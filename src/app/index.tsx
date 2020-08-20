@@ -24,6 +24,11 @@ function App() {
   return (
     <>
       <div className={styles.header}>Pirate Camp 2020</div>
+      {coordinates && (
+        <div className={styles.reset} onClick={() => setCoordinates(null)}>
+          X
+        </div>
+      )}
       {started ? (
         coordinates ? (
           <Tracker latitude={coordinates[0]} longitude={coordinates[1]} />

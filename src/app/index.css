@@ -8,6 +8,14 @@ body > div {
   font-family: "Orbitron", sans-serif;
 }
 
+.reset {
+  position: absolute;
+  top: 2vw;
+  right: 2vw;
+  font-size: 5vw;
+  font-family: "Share Tech Mono", monospace;
+}
+
 .header {
   position: absolute;
   top: 2vw;
