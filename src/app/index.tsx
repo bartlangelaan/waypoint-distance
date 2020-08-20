@@ -4,8 +4,9 @@ import useGeolocation from "react-hook-geolocation";
 import { getDistance } from "geolib";
 import screenfull from "screenfull";
 import useSound from "use-sound";
-import closerSound from "./sounds/closer.wav";
-import updateSound from "./sounds/update.mp3";
+import closerSound from "../sounds/closer.wav";
+import updateSound from "../sounds/update.mp3";
+import styles from "./index.css";
 
 function App() {
   const [playCloserSound] = useSound(closerSound);
@@ -67,13 +68,17 @@ function App() {
 
   return (
     <>
-      <div id="header">Pirate Camp 2020</div>
-      <div id="distance">
-        <div id="number">{distance}</div>
-        <div id="distanceSub">meters to go</div>
+      <div className={styles.header}>Pirate Camp 2020</div>
+      <div className={styles.distance}>
+        <div className={styles.number}>{distance}</div>
+        <div className={styles.distanceSub}>meters to go</div>
       </div>
-      <div id="timeAgo">{timeAgo.toString().padStart(2, "0")}s old</div>
-      <div id="accuracy">Accuracy: {Math.ceil(geolocation.accuracy)}m</div>
+      <div className={styles.timeAgo}>
+        {timeAgo.toString().padStart(2, "0")}s old
+      </div>
+      <div className={styles.accuracy}>
+        Accuracy: {Math.ceil(geolocation.accuracy)}m
+      </div>
     </>
   );
 }

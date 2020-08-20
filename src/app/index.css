@@ -8,7 +8,7 @@ body,
   font-family: "Orbitron", sans-serif;
 }
 
-#header {
+.header {
   position: absolute;
   top: 2vw;
   font-size: 5vw;
@@ -17,7 +17,7 @@ body,
   width: 100%;
 }
 
-#timeAgo {
+.timeAgo {
   position: absolute;
   bottom: 2vw;
   left: 2vw;
@@ -25,7 +25,7 @@ body,
   font-family: "Share Tech Mono", monospace;
 }
 
-#accuracy {
+.accuracy {
   position: absolute;
   bottom: 2vw;
   right: 2vw;
@@ -34,7 +34,7 @@ body,
   font-family: "Share Tech Mono", monospace;
 }
 
-#distance {
+.distance {
   margin: 0;
   position: absolute;
   top: 50%;
@@ -44,10 +44,10 @@ body,
   text-align: center;
 }
 
-#number {
+.number {
   font-size: 30vw;
 }
 
-#distanceSub {
+.distanceSub {
   font-size: 10vw;
 }
