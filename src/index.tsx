@@ -15,8 +15,8 @@ function App() {
   const geolocation = useGeolocation({ enableHighAccuracy: true });
   const now = useNow();
 
-  const lastDistance = useRef<number>();
-  const lastTimestamp = useRef<number>();
+  const lastDistance = useRef<number | null>(null);
+  const lastTimestamp = useRef<number | null>(null);
 
   const distance =
     geolocation.latitude &&
@@ -30,31 +30,35 @@ function App() {
     Math.max(0, Math.floor((now - geolocation.timestamp) / 1000));
 
   useEffect(() => {
-    if (lastDistance.current && distance && distance < lastDistance.current) {
+    if (
+      lastDistance.current !== null &&
+      distance !== null &&
+      distance < lastDistance.current
+    ) {
       playCloserSound();
     } else if (
-      lastDistance.current &&
-      distance &&
+      lastDistance.current !== null &&
+      distance !== null &&
       distance > lastDistance.current
     ) {
       playFurtherSound();
     } else if (
-      lastTimestamp.current &&
-      geolocation.timestamp &&
+      lastTimestamp.current !== null &&
+      geolocation.timestamp !== null &&
       geolocation.timestamp > lastTimestamp.current
     ) {
       playUpdateSound();
     } else if (
-      typeof lastTimestamp.current === "undefined" ||
-      typeof lastDistance.current === "undefined"
+      (lastTimestamp.current === null && geolocation.timestamp !== null) ||
+      (lastDistance.current === null && distance !== null)
     ) {
       playUpdateSound();
     }
-    lastTimestamp.current = geolocation.timestamp || undefined;
-    lastDistance.current = distance || undefined;
+    lastTimestamp.current = geolocation.timestamp;
+    lastDistance.current = distance;
   });
 
-  if (!geolocation.latitude) {
+  if (!geolocation.latitude || timeAgo === null) {
     if (geolocation.error) {
       return <>Error: {geolocation.error}</>;
     }
