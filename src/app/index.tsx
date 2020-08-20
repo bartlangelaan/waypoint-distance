@@ -4,9 +4,11 @@ import screenfull from "screenfull";
 import styles from "./index.css";
 import { Tracker } from "./tracker";
 import { Intro } from "./intro";
+import { Code } from "./code";
 
 function App() {
   const [started, setStarted] = useState(false);
+  const [coordinates, setCoordinates] = useState<[number, number] | null>(null);
 
   useEffect(() => {
     if (!screenfull.isEnabled) return;
@@ -23,7 +25,11 @@ function App() {
     <>
       <div className={styles.header}>Pirate Camp 2020</div>
       {started ? (
-        <Tracker latitude={52.002889} longitude={4.437897} />
+        coordinates ? (
+          <Tracker latitude={coordinates[0]} longitude={coordinates[1]} />
+        ) : (
+          <Code onCorrect={setCoordinates} />
+        )
       ) : (
         <Intro onStart={() => setStarted(true)} />
       )}

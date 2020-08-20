@@ -1,0 +1,16 @@
+.input {
+  display: inline-block;
+  position: absolute;
+  top: 40vh;
+  width: 80vw;
+  left: 10vw;
+  text-align: center;
+  height: 20vh;
+  font-size: 15vw;
+  line-height: 20vh;
+  border: 2px green solid;
+  margin: 0 auto;
+  padding: 0;
+  background: darkgreen;
+  color: white;
+}
