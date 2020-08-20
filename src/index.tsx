@@ -4,8 +4,8 @@ import useGeolocation from "react-hook-geolocation";
 import { getDistance } from "geolib";
 import screenfull from "screenfull";
 import useSound from "use-sound";
-import closerSound from "./closer.wav";
-import updateSound from "./update.mp3";
+import closerSound from "./sounds/closer.wav";
+import updateSound from "./sounds/update.mp3";
 
 function App() {
   const [playCloserSound] = useSound(closerSound);
