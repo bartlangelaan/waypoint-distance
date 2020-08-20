@@ -1,0 +1,13 @@
+.start {
+  display: inline-block;
+  position: absolute;
+  top: 40vh;
+  width: 80vw;
+  left: 10vw;
+  text-align: center;
+  height: 20vh;
+  font-size: 20vw;
+  line-height: 20vh;
+  border: 2px green solid;
+  margin: 0 auto;
+}
