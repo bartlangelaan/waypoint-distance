@@ -5,7 +5,7 @@
     "start:web": "parcel src/index.html",
     "build": "run-s build:*",
     "build:clear": "rm -rf dist",
-    "build:web": "parcel build src/index.html --no-source-maps --public-url"
+    "build:web": "parcel build src/index.html --no-source-maps"
   },
   "author": "Bart Langelaan",
   "license": "MIT",
