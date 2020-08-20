@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "npm run build:clear && run-p -l start:*",
+    "start:web": "parcel src/index.html",
+    "build": "run-s build:*",
+    "build:clear": "rm -rf dist",
+    "build:web": "parcel build src/index.html --no-source-maps --public-url /waypoint-distance"
+  },
+  "author": "Bart Langelaan",
+  "license": "MIT",
+  "dependencies": {
+    "geolib": "^3.3.1",
+    "qs": "^6.9.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-hook-geolocation": "^1.0.6",
+    "screenfull": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.46",
+    "@types/react-dom": "^16.9.8",
+    "autoprefixer": "^9.7.5",
+    "npm-run-all": "^4.1.5",
+    "parcel": "^1.12.4",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.7"
+  }
+}
