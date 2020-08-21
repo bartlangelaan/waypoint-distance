@@ -1,4 +1,31 @@
+.localizing {
+  /* margin: 0; */
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 10vw;
+  line-height: 100vh;
+}
 
+.error {
+  height: 100%;
+  position: relative;
+}
+
+.error > div {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.error > div > div {
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
+}
 
 .timeAgo {
   position: absolute;

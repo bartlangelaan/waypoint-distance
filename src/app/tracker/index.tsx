@@ -63,9 +63,19 @@ export function Tracker(props: Props) {
 
   if (!geolocation.latitude || timeAgo === null) {
     if (geolocation.error) {
-      return <>Error: {geolocation.error}</>;
+      return (
+        <div className={styles.error}>
+          <div>
+            <div>
+              Error: {geolocation.error}.<br />
+              <br />
+              Make a screenshot and contact captain Bart.
+            </div>
+          </div>
+        </div>
+      );
     }
-    return <>Lokaliseren...</>;
+    return <div className={styles.localizing}>Locating...</div>;
   }
 
   return (
