@@ -18,7 +18,8 @@ export function Intro(props: Props) {
         Enter
       </div>
       <div className={styles.version}>
-        Version {process.env.GITHUB_RUN_NUMBER || 0}
+        Version {process.env.GITHUB_RUN_NUMBER || 0} -{" "}
+        <a href={`/?${Math.random()}`}>update</a>
       </div>
     </>
   );
