@@ -13,8 +13,13 @@ export function Intro(props: Props) {
     props.onStart();
   }
   return (
-    <div className={styles.start} onClick={onStart}>
-      Enter
-    </div>
+    <>
+      <div className={styles.start} onClick={onStart}>
+        Enter
+      </div>
+      <div className={styles.version}>
+        Version {process.env.GITHUB_RUN_NUMBER || 0}
+      </div>
+    </>
   );
 }
