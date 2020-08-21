@@ -32,12 +32,12 @@ export function Code(props: Props) {
   return (
     <form noValidate>
       <input
-        type="text"
-        pattern="\d*"
+        type="tel"
         className={styles.input}
         onChange={(e) => onChange(e.target.value)}
         maxLength={6}
         autoFocus
+        placeholder="******"
       />
     </form>
   );

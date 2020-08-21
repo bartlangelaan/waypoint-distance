@@ -14,3 +14,7 @@
   background: darkgreen;
   color: white;
 }
+
+::placeholder {
+  color: green;
+}
