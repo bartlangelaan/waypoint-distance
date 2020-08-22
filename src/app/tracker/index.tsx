@@ -71,9 +71,15 @@ export function Tracker(props: Props) {
     );
   }, [geolocation.error, !geolocation.latitude]);
 
+  const lastStatus = useRef("");
+
+  useEffect(() => {
+    lastStatus.current = `Distance: ${distance} | Time ago: ${timeAgo} | Accuracy: ${geolocation.accuracy}`;
+  }, [distance, timeAgo, geolocation.accuracy]);
+
   useEffect(() => {
     function update() {
-      logStateChange("distance", JSON.stringify(distance));
+      logStateChange("tracking status", lastStatus.current);
     }
     const i = setInterval(update, 15000);
     return () => clearInterval(i);
