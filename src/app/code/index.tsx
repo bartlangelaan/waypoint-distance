@@ -4,6 +4,7 @@ import useSound from "use-sound";
 import wrongSound from "../../sounds/wrong.mp3";
 import correctSound from "../../sounds/correct.wav";
 import clickSound from "../../sounds/click.wav";
+import { log } from "../event";
 
 const codes: { [code: string]: [number, number] } = {
   /** Kantine */
@@ -44,11 +45,7 @@ export function Code(props: Props) {
   function onChange(code: string) {
     playClickSound();
     if (code.length >= 6) {
-      gtag("event", `Code try: ${code}`, {
-        event_category: "State change",
-        event_label: "Code try",
-        value: JSON.stringify(code),
-      });
+      log(`Code try: ${code}`);
 
       if (codes[code]) {
         playCorrectSound();

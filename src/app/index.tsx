@@ -5,6 +5,7 @@ import styles from "./index.css";
 import { Tracker } from "./tracker";
 import { Intro } from "./intro";
 import { Code } from "./code";
+import { logStateChange } from "./event";
 
 function App() {
   const [started, setStarted] = useState(false);
@@ -22,25 +23,11 @@ function App() {
   }, []);
 
   useEffect(() => {
-    gtag("event", `Started: ${started}`, {
-      event_category: "State change",
-      event_label: "Started",
-      value: `${started}`,
-    });
+    logStateChange("started", JSON.stringify(started));
   }, [started]);
 
   useEffect(() => {
-    gtag(
-      "event",
-      `Coordinates: ${
-        coordinates ? `${coordinates[0]},${coordinates[1]}` : `none`
-      }`,
-      {
-        event_category: "State change",
-        event_label: "Coordinates",
-        value: JSON.stringify(coordinates),
-      }
-    );
+    logStateChange("coordinates", JSON.stringify(coordinates));
   }, [coordinates]);
 
   return (
