@@ -1,7 +1,5 @@
-import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from "constants";
-
 const user = Math.ceil(Math.random() * 1000);
-let event = SSL_OP_SSLEAY_080_CLIENT_DH_BUG;
+let event = 0;
 
 export function log(e: string) {
   event += 1;
