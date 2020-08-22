@@ -5,6 +5,7 @@ import useSound from "use-sound";
 import closerSound from "../../sounds/closer.wav";
 import updateSound from "../../sounds/update.mp3";
 import styles from "./index.css";
+import { logStateChange } from "../event";
 
 interface Props {
   latitude: number;
@@ -60,6 +61,23 @@ export function Tracker(props: Props) {
     lastTimestamp.current = geolocation.timestamp;
     lastDistance.current = distance;
   });
+
+  useEffect(() => {
+    logStateChange(
+      "geolocation error",
+      !geolocation.error && !geolocation.latitude
+        ? "no signal (yet)"
+        : JSON.stringify(geolocation.error)
+    );
+  }, [geolocation.error, !geolocation.latitude]);
+
+  useEffect(() => {
+    function update() {
+      logStateChange("distance", JSON.stringify(distance));
+    }
+    const i = setInterval(update, 15000);
+    return () => clearInterval(i);
+  }, []);
 
   if (!geolocation.latitude || timeAgo === null) {
     if (geolocation.error) {
