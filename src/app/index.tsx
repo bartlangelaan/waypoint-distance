@@ -21,6 +21,28 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    gtag("event", `Started: ${started}`, {
+      event_category: "State change",
+      event_label: "Started",
+      value: `${started}`,
+    });
+  }, [started]);
+
+  useEffect(() => {
+    gtag(
+      "event",
+      `Coordinates: ${
+        coordinates ? `${coordinates[0]},${coordinates[1]}` : `none`
+      }`,
+      {
+        event_category: "State change",
+        event_label: "Coordinates",
+        value: JSON.stringify(coordinates),
+      }
+    );
+  }, [coordinates]);
+
   return (
     <>
       <div className={styles.header}>Pirate Camp 2020</div>

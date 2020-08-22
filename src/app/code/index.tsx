@@ -44,6 +44,12 @@ export function Code(props: Props) {
   function onChange(code: string) {
     playClickSound();
     if (code.length >= 6) {
+      gtag("event", `Code try: ${code}`, {
+        event_category: "State change",
+        event_label: "Code try",
+        value: JSON.stringify(code),
+      });
+
       if (codes[code]) {
         playCorrectSound();
         props.onCorrect(codes[code]);
