@@ -7,31 +7,36 @@ import clickSound from "../../sounds/click.wav";
 import { log } from "../event";
 
 const codes: { [code: string]: [number, number] } = {
-  /** Kantine */
-  "000000": [52.002889, 4.437897],
-  /** Kuijpershoefke */
-  "199823": [51.6327, 5.07895],
-  /** Mussenberg */
-  "800144": [51.63115, 5.08839],
-  "403308": [51.63124, 5.08459],
-  /** Loonse Hoek */
-  "932770": [51.63048, 5.09728],
-  "404039": [51.62919, 5.10084],
-  /** D'n Bandschommel */
-  "126987": [51.62708, 5.08319],
-  "421313": [51.62705, 5.08071],
-  /** Moleneind */
-  "718645": [51.61973, 5.08324],
-  "658651": [51.61805, 5.08393],
-  /** Kasteellaan */
-  "556065": [51.6251, 5.07257],
-  "564236": [51.62679, 5.07529],
-  /** Heideweg */
-  "580610": [51.62517, 5.06281],
-  "615085": [51.62519, 5.06009],
-  /** Hertog van Brabantweg */
-  "551071": [51.63127, 5.06879],
-  "404287": [51.63029, 5.06451],
+  /** Het rood wit hekje op de groenekade */
+  "111": [51.999129, 4.438883],
+
+  /** Het straatbordje meerweg in de oude lede */
+  "330": [51.999129, 4.438883],
+
+  /** De brug in de groenzoom */
+  "123": [51.998807, 4.447876],
+
+  /** Het hekje in de groenzoom */
+  "456": [51.995597, 4.447891],
+  "789": [51.995597, 4.447891],
+
+  /** De Soete Suikerbol */
+  "010": [52.006216, 4.450273],
+
+  /** De voordeur van Rebecca */
+  // "666": [],
+
+  /** De voordeur van Thea */
+  "888": [52.011688, 4.452114],
+
+  /** De voordeur van Eja */
+  "777": [52.013099, 4.447311],
+
+  /** De elektriciteitskast op de Floralaan */
+  "999": [52.007959, 4.442592],
+
+  /** De handbal */
+  "042": [52.002874, 4.437968],
 };
 
 interface Props {
