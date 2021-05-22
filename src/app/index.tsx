@@ -32,7 +32,7 @@ function App() {
 
   return (
     <>
-      <div className={styles.header}>Pirate Camp 2020</div>
+      <div className={styles.header}>Pijnacker Escape - Mei 2021</div>
       {coordinates && (
         <div className={styles.reset} onClick={() => setCoordinates(null)}>
           X
