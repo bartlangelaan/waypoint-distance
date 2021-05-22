@@ -39,6 +39,10 @@ const codes: { [code: string]: [number, number] } = {
   "042": [52.002874, 4.437968],
 };
 
+const codeLength = Math.min(...Object.keys(codes).map((k) => k.length));
+
+const placeholder = [...new Array(codeLength)].map((_) => `*`).join("");
+
 interface Props {
   onCorrect: (coordinates: [number, number]) => void;
 }
@@ -49,7 +53,7 @@ export function Code(props: Props) {
 
   function onChange(code: string) {
     playClickSound();
-    if (code.length >= 6) {
+    if (code.length >= codeLength) {
       log(`Code try: ${code}`);
 
       if (codes[code]) {
@@ -69,7 +73,7 @@ export function Code(props: Props) {
         onChange={(e) => onChange(e.target.value)}
         maxLength={6}
         autoFocus
-        placeholder="******"
+        placeholder={placeholder}
       />
     </form>
   );
