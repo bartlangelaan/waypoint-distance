@@ -24,7 +24,7 @@ const codes: { [code: string]: [number, number] } = {
   "010": [52.006216, 4.450273],
 
   /** De voordeur van Rebecca */
-  // "666": [],
+  "666": [52.005464, 4.454287],
 
   /** De voordeur van Thea */
   "888": [52.011688, 4.452114],
